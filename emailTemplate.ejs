@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body style="
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      font-size: 14px;
+    ">
+    <div style="
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 30px 30px 60px;
+        background: #f4f7ff;
+        background-image: url(https://archisketch-resources.s3.ap-northeast-2.amazonaws.com/vrstyler/1661497957196_595865/email-template-background-banner);
+        background-repeat: no-repeat;
+        background-size: 800px 252px;
+        background-position: top center;
+        font-size: 14px;
+        color: #434343;
+      ">
+
+        <h1 style="color: white; font-weight: bold; text-align: center;">Notes App</h1>
+        <main>
+            <div style="
+            margin: 0;
+            margin-top: 20px;
+            padding: 20px 30px 70px;
+            background: #ffffff;
+            border-radius: 30px;
+            text-align: center;
+          ">
+                <% data.forEach(item=> { %>
+
+                    <div style="width: 100%; max-width: 489px; margin: 0 auto">
+                        <h1 style="
+                margin: 0;
+                font-size: 24px;
+                font-weight: 500;
+                color: #1f1f1f;
+              ">
+                            Your OTP
+                        </h1>
+                        <p style="
+                margin: 0;
+                margin-top: 10px;
+                font-size: 16px;
+                font-weight: 500;
+              ">
+                            Dear <%= item.first_name %>
+                                <%= item.last_name %>,
+                        </p>
+                        <p style="
+                margin: 0;
+                margin-top: 10px;
+                font-weight: 500;
+                letter-spacing: 0.56px;
+              ">
+                            Thank you for choosing Notes App. Use the following OTP to
+                            complete the login process. OTP is valid for
+                            <span style="font-weight: 600; color: #1f1f1f">1 minutes</span>.
+                            Do not share this code with others,
+                        </p>
+                        <p style="
+                margin: 0;
+                margin-top: 30px;
+                font-size: 40px;
+                font-weight: 600;
+                letter-spacing: 25px;
+                color: #ba3d4f;
+              ">
+                            <%= item.otp %>
+                        </p>
+                    </div>
+                    <% }); %>
+
+            </div>
+        </main>
+
+        <footer style="
+          width: 100%;
+          max-width: 490px;
+          margin: 20px auto 0;
+          text-align: center;
+          border-top: 1px solid #e6ebf1;
+        ">
+            <p style="
+            margin: 0;
+            margin-top: 40px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #434343;
+          ">
+                Notes App
+            </p>
+
+            <p style="margin: 0; margin-top: 16px; color: #434343">
+                Copyright © Notes App 2024 Company. All rights reserved.
+            </p>
+        </footer>
+    </div>
+    <script>
+        // Get the current date
+        const currentDate = new Date();
+
+        // Format the date as desired (e.g., "DD MMM, YYYY")
+        const formattedDate = currentDate.toLocaleDateString("en-US", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+        });
+
+        // Update the content of the span element with the formatted date
+        document.getElementById("currentDate").textContent = formattedDate;
+    </script>
+</body>
+
+</html>
